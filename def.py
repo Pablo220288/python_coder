@@ -1,7 +1,7 @@
 
 data = {}
 
-"""Abrimos el TXT y cargamos los valores existentes en la DB"""
+# Abrimos el TXT y cargamos los valores existentes en la DB
 def upload():
   with open('DB.txt',"r") as archivo:
     step = ":"
@@ -9,18 +9,18 @@ def upload():
         key, value = linea.split(step)
         data[key.strip()] = value.strip()
 
-""" Funcion para Agergar Usuarios a la DB """
+# Funcion para Agergar Usuarios a la DB
 def add():
-   with open('DB.txt',"w") as adduser:
+   with open('DB.txt',"a") as adduser:
       for key, value in data.items():
          adduser.write("%s: %s\n" %(key, value) )
 
-""" Funcion de Consulta de Usuarios """
+# Funcion de Consulta de Usuarios
 def get_user():
    upload()
    return print(data)
 
-""" Funcion de Registro de Usuarios """     
+# Funcion de Registro de Usuarios
 def register():
   upload()
 
@@ -37,7 +37,7 @@ def register():
 
   return(get_user())
 
-""" Funcion de Login de Usuarios """
+# Funcion de Login de Usuarios
 def login():
    upload()
 
@@ -65,6 +65,6 @@ def login():
             print(f"Usuario Incorrecto. Intentelo de Nuevo. Te quedan {attempts_limit - attempts} intentos")
          
 
-""" register() """
-""" get_user() """
-login()
+register()
+# get_user()
+# login()
